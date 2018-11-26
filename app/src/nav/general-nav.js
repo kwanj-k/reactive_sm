@@ -1,21 +1,22 @@
 import React from 'react';
 import './nav.css';
 import logo from './logo.Uy';
+import { NavLink,Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <div className="nav-links">
+        <div className="nav-NavLinks">
             <nav>
                 <ul>
                     <li>
                         <img src={logo} className="img-responsive" alt="+StoreManager" />
                     </li>
-                    <li ><a href="/" >Home</a></li>
-                    <li ><a href="/products" >Products</a></li>
-                    <li ><a href="/cart" >Cart</a></li>
-                    <li ><a href="/profile" >Your Profile</a></li>
-                    <li ><a href="/stock" >Admin Site</a></li>
-                    <li ><a href="/logout" >LogOut</a></li>
+                    <li ><Link to="/" >Home</Link></li>
+                    <li ><NavLink to="/products" >Products</NavLink></li>
+                    <li ><NavLink to="/cart" >Cart</NavLink></li>
+                    <li ><NavLink to="/profile" >Your Profile</NavLink></li>
+                    <li ><NavLink to="/stock" >Admin Site</NavLink></li>
+                    <li ><NavLink to="/logout" >LogOut</NavLink></li>
                 </ul>
             </nav>
         </div>

@@ -1,18 +1,19 @@
 import React from 'react';
 import './nav.css';
 import logo from './logo.Uy';
+import { Link,NavLink } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <div className="nav-links">
+        <div className="nav-NavLinks">
             <nav>
                 <ul>
                     <li>
                         <img src={logo} className="img-responsive" alt="+StoreManager" />
                     </li>
-                    <li ><a href="/" >Home</a></li>
-                    <li ><a href="/newstore" >New Store</a></li>
-                    <li ><a href="/login" >Login</a></li>
+                    <li ><Link to="/" >Home</Link></li>
+                    <li ><NavLink to="/newstore" >New Store</NavLink></li>
+                    <li ><NavLink to="/login" >Login</NavLink></li>
                 </ul>
             </nav>
         </div>
