@@ -1,0 +1,62 @@
+.pcontainer h1 {
+    color: #114B5F;
+}
+
+.status{
+    font-style: italic;
+    font-size: 0.7em;
+}
+button {
+    margin-top: 10px;
+    margin-left: 5px;
+    background-color: #0D89C6;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pcontainer ul li {
+    color: rgb(37, 37, 99);
+    font-size: 1.3em;
+    width: 85%;
+    border-radius: 4px;
+    margin-top: 15px;
+    background-color: rgb(180, 172, 172);
+    padding: 11px 20px;
+    list-style: none;
+    float: left;
+}
+ .status h3,h4 {
+ 	padding-top: 5px;
+ 	margin: 0;
+ }
+.pcontainer {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: 50px 350px;
+    padding: 10px 30px;
+    overflow: hidden;
+    width: 35%;
+}
+
+.btns {
+	display: inline-block !important;
+}
+.del {
+	background-color: #CF5C3F !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .pcontainer {
+        width: 60%;
+        margin-left:40px;
+        padding: 4px;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    .pcontainer {
+        margin-left: 40px;
+        width: 70%;
+    }
+} 
