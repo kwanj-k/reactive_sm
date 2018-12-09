@@ -4,21 +4,31 @@ import Product from './product-list';
 import Products from '../products/products';
 import { Route } from 'react-router-dom';
 import './stock.css';
+import Modal from 'react-responsive-modal';
+import { connect } from 'react-redux';
 
 class Stock extends Component {
     state = {
-        productlist :[
-            {name:'Monster',price:200,"inventory":20,category:'drink',id:1},
-            {name:'Monster1',price:200,"inventory":20,category:'drink',id:2},
-            {name:'Monster2',price:200,"inventory":20,category:'drink',id:3},
-            {name:'Monster3',price:200,"inventory":20,category:'drink',id:4},
-            {name:'Monster',price:200,"inventory":20,category:'drink',id:5},
-            {name:'Monster1',price:200,"inventory":20,category:'drink',id:6},
-            {name:'Monster2',price:200,"inventory":20,category:'drink',id:7},
-            {name:'Monster3',price:200,"inventory":20,category:'drink',id:8}
-        ]
+        open : false
+    }
+    handleChange = (e) =>{
+        console.log(this.state)
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(this.state)
 
     }
+    onOpenModal = () => {
+        this.setState({ open: true });
+      };
+     
+    onCloseModal = () => {
+    this.setState({ open: false });
+    };
     render(){
         return(
             <div>
@@ -27,13 +37,31 @@ class Stock extends Component {
                 <div className="pcontainer">
                     <h1 >Available Products</h1>
                     <p id="output"></p>
-                    <button >AddProduct</button>
+                    <button onClick={this.onOpenModal}>AddProduct</button>
+                    <Modal  open={ this.state.open } onClose={this.onCloseModal} center>
+                        <form onSubmit={this.handleSubmit}  >
+                            <div className="col-75"><label >Product Name</label></div>
+                            <div className="col-75" >
+                                <input type="text"  placeholder="name of product.." onChange={this.handleChange} />
+                            </div>
+                            <div className="col-75"><label >Number_Of_Items</label></div>
+                            <div className="col-75"><input type="text"  placeholder="20 "  onChange={this.handleChange} /></div>
+                            <div className="col-75"><label >Price KSH</label></div>
+                            <div className="col-75"><input type="text"  placeholder="200"  onChange={this.handleChange} /></div>
+                            <input   type="submit" value="AddProduct"/>
+                        </form>
+                    </Modal>
                     <ul>
-                        <Product productlist = {this.state.productlist}/>
+                        <Product productlist = {this.props.productlist}/>
                     </ul>
                 </div>
             </div>
         )
     }
 }
-export default Stock;
+const mapStateToProps = (state) =>{
+    return {
+        productlist : state.productlist
+    }
+}
+export default connect(mapStateToProps)(Stock);

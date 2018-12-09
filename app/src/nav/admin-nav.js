@@ -3,12 +3,12 @@ import './nav.css';
 import logo from './logo.Uy';
 import { NavLink,Link } from 'react-router-dom';
 
-const Nav = () => {
+const adminNav = () => {
     return (
         <div className="nav-NavLinks">
             <nav>
                 <ul>
-                    <li>
+                     <li>
                         <img src={logo} className="img-responsive" alt="+StoreManager" />
                     </li>
                     <li ><Link to="/" >Home</Link></li>
@@ -22,4 +22,4 @@ const Nav = () => {
         </div>
     )
 }
-export default Nav;
+export default adminNav;

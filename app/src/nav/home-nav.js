@@ -3,9 +3,9 @@ import './nav.css';
 import logo from './logo.Uy';
 import { Link,NavLink } from 'react-router-dom';
 
-const Nav = () => {
+const homeNav = () => {
     return (
-        <div className="nav-NavLinks">
+        <div >
             <nav>
                 <ul>
                     <li>
@@ -19,4 +19,4 @@ const Nav = () => {
         </div>
     )
 }
-export default Nav;
+export default homeNav;

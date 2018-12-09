@@ -3,7 +3,7 @@ import './nav.css';
 import logo from './logo.Uy';
 import { NavLink,Link } from 'react-router-dom';
 
-const Nav = () => {
+const generalNav = () => {
     return (
         <div className="nav-NavLinks">
             <nav>
@@ -22,4 +22,4 @@ const Nav = () => {
         </div>
     )
 }
-export default Nav;
+export default generalNav;

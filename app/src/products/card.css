@@ -23,6 +23,9 @@
     padding: 20px;
 
 }
+.Searchbar input{
+    width: 45% !important;
+}
 /*
 Card
 */
