@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import addProduct from '../actions/productActions';
+import addProduct from '../actions/index.js'
 import './stock.css';
 
 class Addproduct extends Component {
@@ -37,9 +37,10 @@ class Addproduct extends Component {
     )
   }
 }
-const mapStateToProps = dispatch =>{
+
+const mapDispatchToProps = dispatch =>{
   return {
       addProduct : (product) => dispatch(addProduct(product))
   }
 }
-export default connect(null, mapStateToProps)(Addproduct);
+export default connect(null, mapDispatchToProps)(Addproduct);

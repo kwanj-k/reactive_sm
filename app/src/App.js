@@ -5,6 +5,8 @@ import Stock from './stock/stock';
 import Nav from './nav/nav';
 import Footer from './footer/footer';
 import { BrowserRouter,Route,Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   render() {
@@ -12,6 +14,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Nav />
+          <ToastContainer />
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/products' component={Products}/>
