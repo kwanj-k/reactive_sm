@@ -20,7 +20,6 @@ export function getProducts(products){
         products:products
     }
 }
-
 export default function addProduct (product){
     return (dispatch) =>{
         return axiosConfig.request({

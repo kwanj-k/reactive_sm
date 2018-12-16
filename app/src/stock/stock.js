@@ -32,7 +32,6 @@ class Stock extends Component {
     }
    
     render(){
-        
         return(
             <div>
                 <Nav />

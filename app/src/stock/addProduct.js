@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import addProduct from '../actions/index.js'
 import './stock.css';
 
-
 class Addproduct extends Component {
     state = {
         name : "",
@@ -38,6 +37,7 @@ class Addproduct extends Component {
     )
   }
 }
+
 const mapDispatchToProps = dispatch =>{
   return {
       addProduct : (product) => dispatch(addProduct(product))
