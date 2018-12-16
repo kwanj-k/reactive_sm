@@ -1,9 +1,9 @@
 import React from 'react';
-
+import _ from 'lodash';
 
 const Product = ({ productlist }) => {
-
-    const products = productlist.map(product =>{
+    var arr = _.values(productlist.productlist)
+    const products = arr.map(product =>{
         return(
             <div key={product.id}>
                 <li>

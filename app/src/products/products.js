@@ -3,7 +3,6 @@ import Nav from '../nav/general-nav';
 import Card from './card';
 import './card.css';
 import { connect } from 'react-redux';
-
 import * as actionCreators from '../actions/index.js'
 
 class Products extends Component {
