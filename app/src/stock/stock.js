@@ -3,23 +3,35 @@ import Nav from '../nav/admin-nav';
 import Product from './product-list';
 import Products from '../products/products';
 import { Route } from 'react-router-dom';
+import Modal from 'react-responsive-modal';
+import { connect } from 'react-redux';
+import Addproduct from './addProduct'
 import './stock.css';
+
 
 class Stock extends Component {
     state = {
-        productlist :[
-            {name:'Monster',price:200,"inventory":20,category:'drink',id:1},
-            {name:'Monster1',price:200,"inventory":20,category:'drink',id:2},
-            {name:'Monster2',price:200,"inventory":20,category:'drink',id:3},
-            {name:'Monster3',price:200,"inventory":20,category:'drink',id:4},
-            {name:'Monster',price:200,"inventory":20,category:'drink',id:5},
-            {name:'Monster1',price:200,"inventory":20,category:'drink',id:6},
-            {name:'Monster2',price:200,"inventory":20,category:'drink',id:7},
-            {name:'Monster3',price:200,"inventory":20,category:'drink',id:8}
-        ]
+        open : false
 
     }
+    
+    onOpenModal = () => {
+        this.setState({ open: true });
+      };
+     
+    onCloseModal = () => {
+    this.setState({ open: false });
+    };
     render(){
+        const productList = this.props.productlist.length ? (
+            <ul>
+                <Product productlist = {this.props.productlist}/>
+            </ul>
+        ) : (
+            <div>
+                No products.
+            </div>
+        )
         return(
             <div>
                 <Nav />
@@ -27,13 +39,19 @@ class Stock extends Component {
                 <div className="pcontainer">
                     <h1 >Available Products</h1>
                     <p id="output"></p>
-                    <button >AddProduct</button>
-                    <ul>
-                        <Product productlist = {this.state.productlist}/>
-                    </ul>
+                    <button onClick={this.onOpenModal}>AddProduct</button>
+                    <Modal  open={ this.state.open } onClose={this.onCloseModal} center>
+                        <Addproduct />
+                    </Modal>
+                    { productList }
                 </div>
             </div>
         )
     }
 }
-export default Stock;
+const mapStateToProps = (state) =>{
+    return {
+        productlist : state.products.productlist
+    }
+}
+export default connect(mapStateToProps)(Stock);

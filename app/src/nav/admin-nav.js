@@ -1,24 +1,25 @@
 import React from 'react';
 import './nav.css';
 import logo from './logo.Uy';
+import { NavLink,Link } from 'react-router-dom';
 
-const Nav = () => {
+const adminNav = () => {
     return (
-        <div className="nav-links">
+        <div className="nav-NavLinks">
             <nav>
                 <ul>
-                    <li>
+                     <li>
                         <img src={logo} className="img-responsive" alt="+StoreManager" />
                     </li>
-                    <li ><a href="/" >Home</a></li>
-                    <li ><a href="/stock" >Stock</a></li>
-                    <li ><a href="/sales" >Sales</a></li>
-                    <li ><a href="/newuser" >Add User</a></li>
-                    <li ><a href="/products" >Attendant Site</a></li>
-                    <li ><a href="/logout" >LogOut</a></li>
+                    <li ><Link to="/" >Home</Link></li>
+                    <li ><NavLink to="/stock" >Stock</NavLink></li>
+                    <li ><NavLink to="/sales" >Sales</NavLink></li>
+                    <li ><NavLink to="/newuser" >Add User</NavLink></li>
+                    <li ><NavLink to="/products" >Attendant Site</NavLink></li>
+                    <li ><NavLink to="/logout" >LogOut</NavLink></li>
                 </ul>
             </nav>
         </div>
     )
 }
-export default Nav;
+export default adminNav;

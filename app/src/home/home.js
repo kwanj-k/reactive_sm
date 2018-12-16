@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
+import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -13,7 +14,7 @@ class Home extends Component {
                         <p>Store Manager is a web application that helps store owners manage sales and product inventory records. 
                                 This application is meant for use in a single store.</p>
                     <div className="start">
-                        <a href="newstore.html"><input type="submit" value="Get Started"/></a>
+                        <Link to="newstore.html"><input type="submit" value="Get Started"/></Link>
                     </div>
                 </div>
                 <form >
@@ -24,7 +25,7 @@ class Home extends Component {
                         <div className="col-75"><input id="password" type="password"  placeholder="*******"/></div>
                         <p id="output"></p>
                         <div className="col-25">
-                            <a href="/products" className="afix">LogIn</a>
+                            <Link to="/products" className="afix">LogIn</Link>
                         </div> 
                     </div>
                 </form>

@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import Nav from '../nav/general-nav';
 import Card from './card';
 import './card.css';
+import { connect } from 'react-redux';
+
+import * as actionCreators from '../actions/index.js'
 
 class Products extends Component {
-    state = {
-        productlist :[
-            {name:'Monster',price:200,"inventory":20,id:1},
-            {name:'Monster1',price:200,"inventory":20,id:2},
-            {name:'Monster2',price:200,"inventory":20,id:3},
-            {name:'Monster3',price:200,"inventory":20,id:4},
-            {name:'Monster',price:200,"inventory":20,id:5},
-            {name:'Monster1',price:200,"inventory":20,id:6},
-            {name:'Monster2',price:200,"inventory":20,id:7},
-            {name:'Monster3',price:200,"inventory":20,id:8}
-        ]
+    componentDidMount(){
+        this.props.loadProducts()
+    }
+    myproducts (){
+        if (this.props.products.productlist === undefined) {
+            return(<div>You don't have any products.</div>)
+        }else{return(<Card productlist={ this.props.products } />)}
     }
     render(){
         return(
@@ -22,11 +21,15 @@ class Products extends Component {
                 <Nav />
                 <div className="products" >
                     <h1 >Available Products</h1>
-                    <p id="output"></p>
-                    <Card productlist = {this.state.productlist}/>
+                    { this.myproducts() }
                 </div>
             </div>
         )
+       
     }
 }
-export default Products;
+
+const mapStateToProps = (state) =>{
+    return state
+}
+export default connect(mapStateToProps,actionCreators)(Products);

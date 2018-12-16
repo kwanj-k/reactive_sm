@@ -1,23 +1,22 @@
 import React from 'react';
-import './nav.css';
-import logo from './logo.Uy';
+import { Route,Switch} from 'react-router-dom';
+import generalNav from './general-nav';
+import adminNav from './admin-nav';
+import homeNav from './home-nav';
 
-const Nav = ({ homelinks }) => {
-    const links = homelinks.map(link => {
-        return (
-            <li key={link.id}><a href="#hfh.html" >{link.link}</a></li>
-        )
-    })
+
+const Nav = () => {
     return (
-        <div className="nav-links">
+        <div className="nav-NavLinks">
             <nav>
-                <ul>
-                    <li>
-                        <img src={logo} className="img-responsive" alt="+StoreManager" />
-                    </li>
-                    {links}
-                </ul>
+                <Switch>
+                    <Route exact path='/' component={homeNav}></Route>
+                    <Route path='/products' component={generalNav}></Route>
+                    <Route path='/stock' component={adminNav}></Route>
+
+                </Switch>
             </nav>
+            
         </div>
     )
 }

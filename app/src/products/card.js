@@ -1,8 +1,9 @@
 import React from 'react';
+import _ from 'lodash';
 
-
-const Card = ({ productlist }) => {
-    const products = productlist.map(product =>{
+const Card = ({productlist}) => {
+    var arr = _.values(productlist.productlist)
+    const products2 = arr.map(product =>{
         return(
             <div className="card" key={product.id}>
                 <div className="card-container">
@@ -15,10 +16,6 @@ const Card = ({ productlist }) => {
             </div>
         )
     })
-    return (
-        <div>
-            {products}
-        </div>
-    )
+    return (<div>{products2}</div>)
 }
 export default Card;
