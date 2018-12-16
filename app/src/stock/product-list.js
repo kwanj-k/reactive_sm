@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const Product = ({ productlist }) => {
+
     const products = productlist.map(product =>{
         return(
             <div key={product.id}>

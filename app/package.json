@@ -24,6 +24,8 @@
   ],
   "devDependencies": {
     "axios": "^0.18.0",
+    "loadash": "^1.0.0",
+    "react-delay-render": "^0.1.2",
     "react-redux": "^6.0.0",
     "react-responsive-modal": "^3.5.1",
     "react-router-dom": "^4.3.1",
