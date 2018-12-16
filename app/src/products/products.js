@@ -7,24 +7,13 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/index.js'
 
 class Products extends Component {
-   
     componentDidMount(){
         this.props.loadProducts()
     }
     myproducts (){
-        //console.log(this.props.products)
         if (this.props.products.productlist === undefined) {
-            return(
-                <div>
-                    Yo don't have any products.
-                </div>
-            )
-        }else{
-            return(
-                <Card productlist={ this.props.products } />
-            )
-        }
-
+            return(<div>You don't have any products.</div>)
+        }else{return(<Card productlist={ this.props.products } />)}
     }
     render(){
         return(
@@ -40,9 +29,7 @@ class Products extends Component {
     }
 }
 
-
 const mapStateToProps = (state) =>{
     return state
 }
-
 export default connect(mapStateToProps,actionCreators)(Products);
