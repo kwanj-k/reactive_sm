@@ -6,10 +6,16 @@ export function loadProducts(){
     return  (dispatch) => {
       return axiosConfig.request({
           method: "get",
-          url: `/products`
+          url: `/products`,
+          headers: {
+            'Access-Control-Request-Headers': '*',
+            'Authorization': 'Bearer ' + localStorage.getItem("TOKEN")
+        }
       })
       .then((response) => {
           dispatch(getProducts(response.data))
+      }).catch(error =>{
+          console.log(error)
       })
     }
   }
@@ -25,7 +31,11 @@ export default function addProduct (product){
         return axiosConfig.request({
             method: "post",
             url: `/products/`,
-            data:product
+            data:product,
+            headers: {
+                'Access-Control-Request-Headers': '*',
+                'Authorization': 'Bearer ' + localStorage.getItem("TOKEN")
+            }
         })
         .then((response) =>{
             dispatch(loadProducts());
@@ -41,3 +51,5 @@ export default function addProduct (product){
         );
     }
 }
+
+
