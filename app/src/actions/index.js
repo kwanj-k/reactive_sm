@@ -69,7 +69,6 @@ export default function addProduct (product){
         );
     }
 }
-
 // export  function editProduct (product){
 //     return (dispatch) =>{
 //         return axiosConfig.request({
@@ -102,3 +101,4 @@ export default function addProduct (product){
 //         );
 //     }
 // }
+
