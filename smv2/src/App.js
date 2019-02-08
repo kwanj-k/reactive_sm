@@ -14,7 +14,7 @@ const App = (props) => {
     <div >
           <BrowserRouter >
             <Switch >
-                <Route exact path="/home" component={Home}></Route>
+                <Route exact path="/" component={Home}></Route>
                 <Route path="/about" component={About}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/signup" component={SignUp}></Route>

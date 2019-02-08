@@ -13,7 +13,8 @@ class Login extends Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: {}
           };
         this.socialbutton = this.socialbutton.bind(this);
       }
@@ -49,6 +50,7 @@ class Login extends Component {
         );
       }
   render() {
+    const { errors } = this.state;
     return (
         <div>
             <HomeNav/>
@@ -61,6 +63,7 @@ class Login extends Component {
                             type="text"
                             placeholder="email@example.com.."
                             onChange={this.onChange}
+                            error={errors.email}
                             />
                     </div>
                     <div className="col-25"><label >Password</label></div>
@@ -70,6 +73,7 @@ class Login extends Component {
                             type="password"
                             placeholder="*******"
                             onChange={this.onChange}
+                            error={errors.password}
                             />
                     </div>
                     <p id="output"></p>
@@ -89,12 +93,15 @@ class Login extends Component {
 
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
   };
   
   const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
   });
+  
 
 export default connect(mapStateToProps, { loginUser })(Login);
 

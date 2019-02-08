@@ -12,7 +12,6 @@ const HomeNav = () => {
                         <img src={logo} className="img-responsive" alt="+StoreManager" />
                     </li>
                     <li ><Link to="/" >Home</Link></li>
-                    <li ><NavLink to="/newstore">New Store</NavLink></li>
                     <li ><NavLink to="/signup">Signup</NavLink></li>
                     <li ><NavLink to="/login" >Login</NavLink></li>
                 </ul>

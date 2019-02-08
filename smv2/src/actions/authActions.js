@@ -45,12 +45,12 @@ export const loginUser = userData => dispatch => {
         payload: decoded
       });
     })
-    // .catch(
-    //   dispatch({
-    //     type: GET_ERRORS,
-    //     payload: err.response.data
-    //   })
-    // )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
   };
   
   // Set logged in user
