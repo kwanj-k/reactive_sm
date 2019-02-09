@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
+import authReducer, { socialAuthFunc } from './authReducer';
 import errorReducer from './errorReducer';
 
-export default combineReducers({
+export default  combineReducers({
   auth : authReducer,
   errors: errorReducer,
+  socialAuthFunc
   
 })

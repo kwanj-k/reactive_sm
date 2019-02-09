@@ -2,7 +2,13 @@ import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import axiosConfig from '../axiosConfig';
 
-import { GET_ERRORS,SET_CURRENT_USER } from './types';
+import {
+  GET_ERRORS,
+  SET_CURRENT_USER,
+  RECEIVE_CALL,
+  FETCH_CALL,
+  FETCH_FAILED
+} from './types';
 
 
 // Register User
@@ -70,4 +76,49 @@ export const loginUser = userData => dispatch => {
     // Set current user to {} which will set isAuthenticated to false
     dispatch(setCurrentUser({}));
   };
+
+
+  // All auth functions for the social login work
+  export function FacebookAuth(data) {
+    return data;
+  }
   
+  export function GoogleAuth(data) {
+    return data;
+  }
+  
+  export function TwitterAuth(data) {
+    return data;
+  }
+  
+  // Informational functions
+  export function receivedUsers(action) {
+    return {
+      type: RECEIVE_CALL,
+      payload: {
+        fetching: false,
+        users: action,
+        message: "success"
+      }
+    };
+  }
+  
+  export function fetchingCall() {
+    return {
+      type: FETCH_CALL,
+      payload: {
+        fetching: true,
+        message: "fetching"
+      }
+    };
+  }
+  
+  export function failedCall(error) {
+    return {
+      type: FETCH_FAILED,
+      payload: {
+        fetching: false,
+        message: error
+      }
+    };
+  }

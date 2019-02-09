@@ -5,7 +5,7 @@ import '../../styles/css/login.css'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
-
+import Social from './Social';
 
 
 class Login extends Component {
@@ -16,7 +16,6 @@ class Login extends Component {
             password: '',
             errors: {}
           };
-        this.socialbutton = this.socialbutton.bind(this);
       }
     componentDidMount() {
         if (this.props.auth.isAuthenticated) {
@@ -44,11 +43,7 @@ class Login extends Component {
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
       }
-    socialbutton( btn_class){
-        return (
-            <i  className={btn_class}/>
-        );
-      }
+
   render() {
     const { errors } = this.state;
     return (
@@ -78,13 +73,9 @@ class Login extends Component {
                     </div>
                     <p id="output"></p>
                     <input type="submit" value="LogIn"/>
-                    <div className="icons">
-                        {this.socialbutton('fa fa-facebook')}
-                        {this.socialbutton('fa fa-twitter')}
-                        {this.socialbutton('fa fa-google')}
-                    </div>
                 </div>
             </form>
+            <Social/>
             <Footer/>
         </div>
     )
