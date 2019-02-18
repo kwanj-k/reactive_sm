@@ -49,7 +49,7 @@ class Login extends Component {
     return (
         <div>
             <HomeNav/>
-            <form onSubmit={this.onSubmit}>>
+            <form onSubmit={this.onSubmit}>
                 <div className="welcome">
                     <div className="col-25"><label >Email Address</label></div>
                     <div className="col-75">
