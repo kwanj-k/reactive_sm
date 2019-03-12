@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './home.css';
 import { Link } from 'react-router-dom';
-import LoginUser from './loginUser';
-
+import Login from '../Login';
 
 class Home extends Component {
     render(){
@@ -15,10 +14,10 @@ class Home extends Component {
                         <p>Store Manager is a web application that helps store owners manage sales and product inventory records. 
                                 This application is meant for use in a single store.</p>
                     <div className="start">
-                        <Link to="newstore.html"><input type="submit" value="Get Started"/></Link>
+                        <Link to="/newstore"><input type="submit" value="Get Started"/></Link>
                     </div>
                 </div>
-                < LoginUser />
+                < Login />
             </div>
         );
     }

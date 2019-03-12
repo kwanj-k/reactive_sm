@@ -10,7 +10,6 @@ class Products extends Component {
         this.props.loadProducts()
     }
     myproducts (){
-        //console.log(this.props)
         if (this.props.products.productlist === undefined) {
             return(<div>You don't have any products.</div>)
         }else{return(<Card productlist={ this.props.products } />)}

@@ -11,9 +11,9 @@ const Nav = () => {
             <nav>
                 <Switch>
                     <Route exact path='/' component={homeNav}></Route>
+                    <Route  path='/newstore' component={homeNav}></Route>
                     <Route path='/products' component={generalNav}></Route>
                     <Route path='/stock' component={adminNav}></Route>
-
                 </Switch>
             </nav>
             

@@ -13,18 +13,19 @@ export function loadProducts(){
       })
       .then((response) => {
           dispatch(getProducts(response.data))
-      }).catch(
-        error => {
-            switch (error.response.status) {
-                case 401:
-                    localStorage.removeItem("TOKEN");
-                    window.location.href = "/";
-                    return 
-                default:
-                    toast.error(error.response.data.message);
-                }
-            }
-        );
+      })
+    //   }).catch(
+    //     error => {
+    //         switch (error.response.status) {
+    //             case 401:
+    //                 localStorage.removeItem("TOKEN");
+    //                 window.location.href = "/";
+    //                 return 
+    //             default:
+    //                 toast.error(error.response.data.message);
+    //             }
+    //         }
+    //     );
     }
 }
 
